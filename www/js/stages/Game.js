@@ -41,7 +41,7 @@ var gameStage = {
     this.timeText.setText("time: " + Math.floor(this.game.time.events.duration/1000))
   },
   done: function() {
-    game.state.start('win')
+    game.state.start('win', true, false, this.score)
   },
   createShape: function() {
     var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
