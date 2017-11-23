@@ -14,8 +14,8 @@ var gameStage = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     let styles = {font: "20px Arial",fill: "#ff0044"}
-    scoreText = game.add.text(game.world.width - 100, 10, "score: " + this.score, styles);
-    this.timeText = this.game.add.text(this.game.world.width - 100, 34, "time: 20", styles);
+    scoreText = game.add.text(game.world.width - 150, 10, "score: " + this.score, styles);
+    this.timeText = this.game.add.text(this.game.world.width - 150, 36, "time: 20", styles);
 
     group = game.add.physicsGroup();
 
@@ -41,11 +41,11 @@ var gameStage = {
     this.timeText.setText("time: " + Math.floor(this.game.time.events.duration/1000))
   },
   done: function() {
-
+    game.state.start('win')
   },
   createShape: function() {
     var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
-    c.scale.setTo(0.2, 0.2);
+    c.scale.setTo(0.25, 0.25);
     c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
     c.inputEnabled = true;
     c.events.onInputDown.add(this.onDown, this)
