@@ -6,6 +6,7 @@ var gameStage = {
   scoreText: undefined,
   shapes: undefined,
   roundShapes: [],
+  timeText: undefined,
   preload: function() {
 
   },
@@ -13,14 +14,15 @@ var gameStage = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     let styles = {font: "20px Arial",fill: "#ff0044"}
-    scoreText = game.add.text(game.world.width - 200, 10, "score: " + this.score, styles);
+    scoreText = game.add.text(game.world.width - 100, 10, "score: " + this.score, styles);
+    this.timeText = this.game.add.text(this.game.world.width - 100, 34, "time: 20", styles);
 
     group = game.add.physicsGroup();
 
     for (var i = 0; i < 5; i++)
     {
         var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
-        c.scale.setTo(0.2, 0.2);
+        c.scale.setTo(0.25, 0.25);
         c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
         c.inputEnabled = true;
         c.events.onInputDown.add(this.onDown, this)
@@ -28,9 +30,18 @@ var gameStage = {
     group.setAll('body.bounce.y', 1);
     group.setAll('body.bounce.x', 1);
     group.setAll('body.collideWorldBounds', true);
+
+    // Lets set timer when game ends
+    this.game.time.events.add(Phaser.Timer.SECOND * 30, this.done, this);
   },
   update: function() {
     game.physics.arcade.collide(group);
+  },
+  render: function() {
+    this.timeText.setText("time: " + Math.floor(this.game.time.events.duration/1000))
+  },
+  done: function() {
+
   },
   createShape: function() {
     var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
