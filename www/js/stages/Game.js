@@ -13,7 +13,7 @@ var gameStage = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     let styles = {font: "20px Arial",fill: "#ff0044"}
-    scoreText = game.add.text(game.world.width-100, 10, "score: " + this.score, styles);
+    scoreText = game.add.text(game.world.width - 200, 10, "score: " + this.score, styles);
 
     group = game.add.physicsGroup();
 
