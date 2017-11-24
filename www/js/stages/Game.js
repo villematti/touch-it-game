@@ -44,7 +44,8 @@ var gameStage = {
     game.state.start('win', true, false, this.score)
   },
   createShape: function() {
-    var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
+    var color = ['red', 'blue', 'green', 'lightgreen', 'black', 'grey', 'yellow', 'purple'][Math.floor(game.rnd.between(0, 7))]
+    var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), color + '_circle', game.rnd.between(0, 35));
     c.scale.setTo(0.25, 0.25);
     c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
     c.inputEnabled = true;
