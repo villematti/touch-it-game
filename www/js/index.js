@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
-var game = new Phaser.Game("100%", "100%", Phaser.AUTO)
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO)
 
 game.state.add('boot', bootStage)
 game.state.add('load', loadStage)
