@@ -53,7 +53,7 @@ var loadStage = {
     this.load.image('purple_square', 'assets/purple_square.png')
     this.load.image('purple_star', 'assets/purple_star.png')
 
-    this.load.onComplete.add(this.onLoadComplete, this)
+    this.load.onLoadComplete.add(this.onLoadComplete, this)
   },
   create: function() {
 
