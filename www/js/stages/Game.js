@@ -21,8 +21,13 @@ var gameStage = {
 
     for (var i = 0; i < 5; i++)
     {
-        var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), 'logo', game.rnd.between(0, 35));
-        c.scale.setTo(0.25, 0.25);
+        var color = ['red', 'blue', 'green', 'lightgreen', 'black', 'grey', 'yellow', 'purple'][Math.floor(game.rnd.between(0, 7))]
+        var symbol = ['circle', 'square', 'star'][Math.floor(game.rnd.between(0, 2))]
+        var c = group.create(game.rnd.between(0, 770),
+                              game.rnd.between(0, 570),
+                              color + '_' + symbol,
+                              game.rnd.between(0, 35));
+        c.scale.setTo(0.4, 0.4);
         c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
         c.inputEnabled = true;
         c.events.onInputDown.add(this.onDown, this)
@@ -45,8 +50,12 @@ var gameStage = {
   },
   createShape: function() {
     var color = ['red', 'blue', 'green', 'lightgreen', 'black', 'grey', 'yellow', 'purple'][Math.floor(game.rnd.between(0, 7))]
-    var c = group.create(game.rnd.between(0, 770), game.rnd.between(0, 570), color + '_circle', game.rnd.between(0, 35));
-    c.scale.setTo(0.25, 0.25);
+    var symbol = ['circle', 'square', 'star'][Math.floor(game.rnd.between(0, 2))]
+    var c = group.create(game.rnd.between(0, 770),
+                          game.rnd.between(0, 570),
+                          color + '_' + symbol,
+                          game.rnd.between(0, 35));
+    c.scale.setTo(0.4, 0.4);
     c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
     c.inputEnabled = true;
     c.events.onInputDown.add(this.onDown, this)

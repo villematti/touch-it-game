@@ -13,7 +13,7 @@ var winStage = {
     scoreText.anchor.set(0.5)
 
 
-    var restartText = game.add.text(game.world.width / 2, (game.world.height + 150) / 2, "Tap here to play again");
+    var restartText = game.add.text(game.world.width / 2, (game.world.height + 250) / 2, "Tap here to play again");
     restartText.anchor.set(0.5)
     restartText.inputEnabled = true;
     restartText.events.onInputDown.add(this.onDown, this)
