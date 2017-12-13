@@ -22,6 +22,6 @@ var winStage = {
 
   },
   onDown: function() {
-    game.state.start('game', true, false, 0)
+    game.state.start('game', true, false, 0, 1)
   }
 }
