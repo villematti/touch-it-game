@@ -8,6 +8,7 @@ var gameStage = {
   roundShapes: [],
   timeText: undefined,
   level: 1,
+  gameTimer: undefined,
   preload: function() {
 
   },
@@ -33,7 +34,7 @@ var gameStage = {
     }
 
     // Lets set timer when game ends
-    this.game.time.events.add(Phaser.Timer.SECOND * 30, this.done, this)
+    this.gameTimer = this.game.time.events.add(Phaser.Timer.SECOND * 30, this.done, this)
   },
   update: function() {
     game.physics.arcade.collide(group);
@@ -65,9 +66,9 @@ var gameStage = {
   onDown: function(sprite, pointer) {
     if(sprite.shapeSymbol === 'square') {
       var timeLeft = Math.floor(this.game.time.events.duration/1000)
-      this.game.time.events.destroy()
+      this.gameTimer.destroy()
 
-      this.game.time.events.add(Phaser.Timer.SECOND + timeLeft + 5, this.done, this)
+      this.gameTimer = this.game.time.events.add(Phaser.Timer.SECOND + timeLeft + 5, this.done, this)
 
       this.score += 10
       Phaser.Timer.SECOND + 5
