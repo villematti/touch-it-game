@@ -46,7 +46,7 @@ gameStage.prototype = {
     game.state.start('win', true, false, this.score)
   },
   createShape: function() {
-    var shapeData = gameStage.getShape()
+    var shapeData = this.getShape().bind(this)
     var c = group.create(game.rnd.between(0, 770),
                           game.rnd.between(0, 570),
                           shapeData.color + '_' + shapeData.symbol,
