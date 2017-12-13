@@ -64,9 +64,13 @@ var gameStage = {
   },
   onDown: function(sprite, pointer) {
     if(sprite.shapeSymbol === 'square') {
+      var timeLeft = Math.floor(this.game.time.events.duration/1000)
+      this.game.time.events.destroy()
+
+      this.game.time.events.add(Phaser.Timer.SECOND + timeLeft + 5, this.done, this)
+
       this.score += 10
       Phaser.Timer.SECOND + 5
-      this.game.time.events.duration + 1
     } else {
       this.score += 1
     }
