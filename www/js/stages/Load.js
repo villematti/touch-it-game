@@ -1,4 +1,5 @@
-var loadStage = {
+var loadStage = function(game){}
+loadStage.prototype = {
   preload: function() {
     // Start physics engine, ARCADE -> everything is square
     game.physics.startSystem(Phaser.Physics.ARCADE);

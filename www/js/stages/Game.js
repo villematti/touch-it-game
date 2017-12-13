@@ -1,15 +1,14 @@
 var sprite;
 var group;
 var cursors;
-var gameStage = {
+var gamestage = function(game){}
+gameStage.prototype = {
   score: 0,
   scoreText: undefined,
   shapes: undefined,
   roundShapes: [],
   timeText: undefined,
   level: 1,
-  color:,
-  symbol:,
   preload: function() {
 
   },

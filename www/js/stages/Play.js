@@ -1,4 +1,5 @@
-var playStage = {
+var playStage = function(game) {}
+playStage.prototype = {
   preload: function() {
 
   },

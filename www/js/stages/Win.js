@@ -1,4 +1,5 @@
-var winStage = {
+var winStage = function(game) {}
+winStage.prototype = {
   score: undefined,
   init: function(score) {
     this.score = score
