@@ -2,7 +2,7 @@ var bootStage = {
   preload: function() {
 
     // Load game logo to memory
-    game.load.image('logo', 'img/game_logo.png')
+    game.load.image('logo', 'assets/images/logo.png')
   },
   create: function() {
 

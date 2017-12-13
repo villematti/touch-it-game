@@ -62,6 +62,6 @@ var loadStage = {
 
   },
   onLoadComplete: function() {
-    game.state.start('game')
+    game.state.start('game', false, true, 0)
   }
 }
