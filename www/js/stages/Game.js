@@ -45,7 +45,7 @@ var gameStage = {
     game.state.start('win', true, false, this.score)
   },
   createShape: function() {
-    var shapeData = this.getShape().bind(this)
+    var shapeData = this.getShape()
     var color = ['red', 'blue', 'green', 'lightgreen', 'black', 'grey', 'yellow', 'purple'][Math.floor(game.rnd.between(0, 7))]
     var symbol = ['circle', 'square', 'star'][Math.floor(game.rnd.between(0, 2))]
     var c = group.create(game.rnd.between(0, 770),
