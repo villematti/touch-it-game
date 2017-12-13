@@ -47,7 +47,7 @@ var gameStage = {
     game.state.start('win', true, false, this.score)
   },
   createShape: function() {
-    var shapeData = this.getShape()
+    var shapeData = gameStage.getShape()
     var c = group.create(game.rnd.between(0, 770),
                           game.rnd.between(0, 570),
                           shapeData.color + '_' + shapeData.symbol,
@@ -56,8 +56,8 @@ var gameStage = {
     c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
     c.inputEnabled = true;
     c.events.onInputDown.add(this.onDown, this)
-    c.shapeColor = shapeData.color
-    c.shapeSymbol = shapeData.symbol
+    //c.shapeColor = shapeData.color
+    //c.shapeSymbol = shapeData.symbol
     c.body.bounce.y = 1
     c.body.bounce.x = 1
     c.body.collideWorldBounds = true
