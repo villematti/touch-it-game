@@ -86,8 +86,15 @@ var gameStage = {
     switch(this.level) {
       case 1:
 
-      // At level 1, color is always red
-      color = 'red'
+      // 80% change to get red color
+      if(colorNumber <= 80) {
+        color = 'red'
+      }
+
+      // 20% change to get blue color
+      if(colorNumber > 80) {
+        color = 'blue'
+      }
 
       // About 50% change that its a circle
       if(symbolNumber <= 50) {
@@ -95,7 +102,7 @@ var gameStage = {
       }
 
       // Around 45% change to get square symbol
-      if(symbolNumber > 50 <= 97) {
+      if(symbolNumber > 50 && symbolNumber <= 97) {
         symbol = 'square'
       }
 
