@@ -1,7 +1,7 @@
 var sprite;
 var group;
 var cursors;
-var gamestage = function(game){}
+var gameStage = function(game){}
 gameStage.prototype = {
   score: 0,
   scoreText: undefined,
