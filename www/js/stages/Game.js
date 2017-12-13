@@ -47,9 +47,11 @@ gameStage.prototype = {
   },
   createShape: function() {
     var shapeData = this.getShape().bind(this)
+    var color = ['red', 'blue', 'green', 'lightgreen', 'black', 'grey', 'yellow', 'purple'][Math.floor(game.rnd.between(0, 7))]
+    var symbol = ['circle', 'square', 'star'][Math.floor(game.rnd.between(0, 2))]
     var c = group.create(game.rnd.between(0, 770),
                           game.rnd.between(0, 570),
-                          shapeData.color + '_' + shapeData.symbol,
+                          color + '_' + symbol,
                           game.rnd.between(0, 35));
     c.scale.setTo(0.6, 0.6);
     c.body.velocity.set(game.rnd.between(10, 300), game.rnd.between(10, 300))
