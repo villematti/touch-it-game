@@ -1,3 +1,50 @@
+
+// Point chart for different colors and shapes
+var shapeChart = [
+  {
+    "red": [
+      "circle": {points: 1},
+      "square": {points: 3},
+      "star": {points: -1}
+    ],
+    "blue": [
+      "cicle": {points: 2},
+      "square": {points: 4},
+      "star": {points: -2}
+    ],
+    "green": [
+      "cicle": {points: 3},
+      "square": {points: 5},
+      "star": {points: -3}
+    ],
+    "lightgreen": [
+      "cicle": {points: 4},
+      "square": {points: 6},
+      "star": {points: -4}
+    ],
+    "black": [
+      "cicle": {points: 5},
+      "square": {points: 8},
+      "star": {points: -6}
+    ],
+    "grey": [
+      "cicle": {points: 6},
+      "square": {points: 10},
+      "star": {points: -7}
+    ],
+    "yellow": [
+      "cicle": {points: 8},
+      "square": {points: 12},
+      "star": {points: -8}
+    ],
+    "purple": [
+      "cicle": {points: 10},
+      "square": {points: 15},
+      "star": {points: -9}
+    ],
+  }
+]
+
 var sprite;
 var group;
 var cursors;
@@ -19,11 +66,14 @@ var gameStage = {
   create: function() {
     game.physics.startSystem(Phaser.Physics.ARCADE)
 
-    let styles = {font: "20px Arial",fill: "#ff0044"}
+    let styles = {font: "20px Arial",fill: "#FF0000"}
+    let levelTextStyle = {font: "40px Arial",fill: "#000000", opacity: 0.25}
 
     // Put score text to the screen
     scoreText = game.add.text(game.world.width - 150, 10, "score: " + this.score, styles)
     this.timeText = this.game.add.text(this.game.world.width - 150, 36, "time: 20", styles)
+
+    levelText = game.add.text(10, 10, "score: " + this.level, levelTextStyle)
 
     // Add
     group = game.add.physicsGroup();
@@ -64,20 +114,15 @@ var gameStage = {
     c.body.collideWorldBounds = true
   },
   onDown: function(sprite, pointer) {
-    if(sprite.shapeSymbol === 'square') {
-      var timeLeft = Math.floor(this.game.time.events.duration/1000)
-      this.gameTimer.destroy()
 
-      this.gameTimer = this.game.time.events.add(Phaser.Timer.SECOND + timeLeft + 5, this.done, this)
+    // Calculate new score based on value given by point chart
+    this.score = this.score + shapeChart[sprite.shapeColor][sprite.shapeSymbol]
 
-      this.score += 10
-      Phaser.Timer.SECOND + 5
-    } else {
-      this.score += 1
-    }
-
+    // Kill tapped sprite and create new one
     sprite.kill()
     this.createShape()
+
+    // Update the score board
     scoreText.setText("score: " + this.score)
   },
 
@@ -214,32 +259,3 @@ var gameStage = {
     return {color: color, symbol: symbol}
   }
 }
-
-// shape = game.add.graphics(game.world.width*0.5, game.world.height*0.5)
-// shape.beginFill(0xFF0000)
-// shape.drawCircle(0, 30, 60)
-// shapeSprite = game.add.sprite(0,0)
-// shapeSprite.addChild(shape)
-// shapeSprite.anchor.set(0.5)
-// shapeSprite.inputEnabled = true
-// shapeSprite.events.onInputDown.add(this.onDown, this);
-// game.physics.enable(shape, Phaser.ARCADE)
-// shape.body.velocity.set(50, 70)
-// shape.body.collideWorldBounds=true
-// shape.body.bounce.y = 1
-// shape.body.bounce.x = 1
-//
-// shape2 = game.add.graphics(game.world.width*0.5, game.world.height*0.5)
-// shape2.beginFill(0xFF0000)
-// shape2.drawCircle(0, 30, 60)
-//
-// shapeSprite2 = game.add.sprite(5,100)
-// shapeSprite2.addChild(shape2)
-// shapeSprite2.anchor.set(0.5)
-// shapeSprite2.inputEnabled = true
-// shapeSprite2.events.onInputDown.add(this.onDown, this);
-// game.physics.enable(shape2, Phaser.ARCADE)
-// shape2.body.velocity.set(30, 70)
-// shape2.body.collideWorldBounds=true
-// shape2.body.bounce.y = 1
-// shape2.body.bounce.x = 1
