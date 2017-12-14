@@ -81,7 +81,7 @@ var gameStage = {
     this.levelText = game.add.text(10, 10, "TASO " + this.level, levelTextStyle)
 
     this.targetScoreText = game.add.text(game.world.width / 2, game.world.height - 15, "Tavoite " + this.targetScore, levelTextStyle)
-    this.targetScore.anchor.set(0.5)
+    this.targetScoreText.anchor.setTo(0.5)
 
     // Add
     group = game.add.physicsGroup();
