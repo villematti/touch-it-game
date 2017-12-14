@@ -51,6 +51,7 @@ var cursors;
 var gameStage = {
   score: 0,
   scoreText: undefined,
+  levelText: undefined,
   shapes: undefined,
   roundShapes: [],
   timeText: undefined,
@@ -70,10 +71,10 @@ var gameStage = {
     let levelTextStyle = {font: "40px Arial",fill: "#000000", opacity: 0.25}
 
     // Put score text to the screen
-    scoreText = game.add.text(game.world.width - 150, 10, "score: " + this.score, styles)
+    this.scoreText = game.add.text(game.world.width - 150, 10, "score: " + this.score, styles)
     this.timeText = this.game.add.text(this.game.world.width - 150, 36, "time: 20", styles)
 
-    levelText = game.add.text(10, 10, "score: " + this.level, levelTextStyle)
+    this.levelText = game.add.text(10, 10, "score: " + this.level, levelTextStyle)
 
     // Add
     group = game.add.physicsGroup();
