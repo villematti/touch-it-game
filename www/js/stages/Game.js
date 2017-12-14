@@ -1,48 +1,46 @@
 
 // Point chart for different colors and shapes
 var shapeChart = [
-  {
-    "red": [
+    "red": {
       "circle": {points: 1},
       "square": {points: 3},
       "star": {points: -1}
-    ],
-    "blue": [
+    },
+    "blue": {
       "cicle": {points: 2},
       "square": {points: 4},
       "star": {points: -2}
-    ],
-    "green": [
+    },
+    "green": {
       "cicle": {points: 3},
       "square": {points: 5},
       "star": {points: -3}
-    ],
-    "lightgreen": [
+    },
+    "lightgreen": {
       "cicle": {points: 4},
       "square": {points: 6},
       "star": {points: -4}
-    ],
-    "black": [
+    },
+    "black": {
       "cicle": {points: 5},
       "square": {points: 8},
       "star": {points: -6}
-    ],
-    "grey": [
+    },
+    "grey": {
       "cicle": {points: 6},
       "square": {points: 10},
       "star": {points: -7}
-    ],
-    "yellow": [
+    },
+    "yellow": {
       "cicle": {points: 8},
       "square": {points: 12},
       "star": {points: -8}
-    ],
-    "purple": [
+    },
+    "purple": {
       "cicle": {points: 10},
       "square": {points: 15},
       "star": {points: -9}
-    ],
-  }
+    },
 ]
 
 var sprite;
